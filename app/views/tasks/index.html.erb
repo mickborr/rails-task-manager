@@ -1,13 +1,14 @@
 <h1>My tasks</h1>
 
+<%= link_to "Add a new task", new_task_path %>
+
 <% logo_coche = "<i class='fa fa-check-square-o'></i>".html_safe %>
 <% logo_sans_coche = "<i class='fa fa-square-o' aria-hidden='true'></i>".html_safe %>
 <% @tasks.each do |task|%>
-  <div style="display: flex; align-items: center; padding: 10px; height: 0px;">
+  <div style="display: flex; align-items: center; padding: 10px; height: 20px;">
     <%= task.completed ? logo_coche : logo_sans_coche %>
     <p style="padding: 10px;"><%= link_to "#{task.title}", task_path(task) %></p>
-
+    <%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure?"} %>
   </div>
-
 <% end %>
 

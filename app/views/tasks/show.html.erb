@@ -1,7 +1,8 @@
-<% logo_coche = "<i class='fa fa-check-square-o'></i>".html_safe %>
-<% logo_sans_coche = "<i class='fa fa-square-o' aria-hidden='true'></i>".html_safe %>
+<% logo_coche = "<i class='fa fa-check-square-o'></i> This task is completed".html_safe %>
+<% logo_sans_coche = "<i class='fa fa-square-o' aria-hidden='true'></i> This task is not completed".html_safe %>
 
 <h1> <%= @task.title %></h1>
 <p><%= @task.details %></p>
 <p><%= @task.completed ? logo_coche : logo_sans_coche %></p>
 <%= link_to 'Back to list', tasks_path %>
+<%= link_to 'Edit the task', edit_task_path %>
